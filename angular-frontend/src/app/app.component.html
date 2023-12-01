@@ -1,0 +1,43 @@
+<div class="navbar navbar-expand navbar-dark bg-dark">
+  <a href="" class="navbar-brand ms-3 me-2">
+    <img height="30" alt="Angular Logo" src="assets/images/Logo.png" />
+  </a>
+
+  <div class="navbar-nav me-auto">
+    <div class="nav-item">
+      <a [routerLink]="['/home']" routerLinkActive="active" class="nav-link">Home</a>
+    </div>
+    <div class="nav-item" *ngIf="currentUser?.userId && isUser()">
+      <a [routerLink]="['/projects']" routerLinkActive="active" class="nav-link">Projects</a>
+    </div>
+    <div class="nav-item" *ngIf="isAdmin()">
+      <a [routerLink]="['/admin']" routerLinkActive="active" class="nav-link">Admin</a>
+    </div>
+    <div class="nav-item" *ngIf="isDeveloper()">
+      <a [routerLink]="['/developer']" routerLinkActive="active" class="nav-link">Dev</a>
+    </div>
+  </div>
+
+  <div class="navbar-nav ms-auto" *ngIf="!currentUser?.userId">
+    <div class="nav-item">
+      <a [routerLink]="['/register']" routerLinkActive="active" class="nav-link">Sign Up</a>
+    </div>
+    <div class="nav-item">
+      <a [routerLink]="['/login']" routerLinkActive="active" class="nav-link">Sign In</a>
+    </div>
+  </div>
+
+  <div class="navbar-nav ms-auto" *ngIf="currentUser?.userId">
+    <div class="nav-item">
+      <a [routerLink]="['/profile']" routerLinkActive="active" class="nav-link">{{currentUser.firstName}}
+        {{currentUser.lastName}}
+      </a>
+    </div>
+    <div class="nav-item">
+      <a (click)="logout()" class="nav-link" style="cursor: pointer;">Sign Out</a>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
+<app-footer></app-footer>

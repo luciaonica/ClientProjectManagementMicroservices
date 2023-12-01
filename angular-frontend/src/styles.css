@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+.custom-card {
+    width: 400px;
+    max-width: 100%;
+    background-color: #eee!important;
+}
+.user-icon {
+    font-size: 80px;
+    color: darkred;
+}
+
+.alert-danger {
+    color: darkred;
+} 

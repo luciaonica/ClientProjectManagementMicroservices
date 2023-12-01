@@ -1,0 +1,11 @@
+section {
+    padding: 5px;
+    text-align: center;
+    min-height: 50px;
+    background-color: lightgray;
+}
+
+a {
+    text-decoration: none;
+    color: blueviolet;
+}

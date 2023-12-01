@@ -1,0 +1,361 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap'); */
+
+.users{
+    padding: 20px;
+}
+
+.slider-wrap{
+    position: relative;
+    overflow: hidden;
+    height: 350px;
+}
+
+.container-fluid{
+    background-color: rgb(245, 241, 241);
+}
+
+.slider-main{
+    position: absolute;
+    width: 200%;
+}
+
+.card{
+    display: inline-block;
+    width: 256px;
+    height: 350px;
+    background-color: rebeccapurple;
+    position: relative;
+    margin: 0 15px;
+    border-radius: 25px;
+    background-color: #fff;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.main-cont {
+    display: flex;
+    flex-direction: row;
+    
+    min-height: 550px;
+    
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+#wrapper-div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100px;
+    
+    margin: auto;
+}
+
+.left {
+    width: 18%;
+    
+  
+}
+
+
+
+.right {
+    width: 18%;
+    
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 15px;
+}
+
+.center {
+    width: 64%;
+    border-right: 1px solid lightgray;
+    border-left: 1px solid lightgray;
+    padding: 20px;
+    
+    background-color: #efefef;
+}
+
+
+
+.btn-slide{
+    border-radius: 50%;
+    border-color: rgb(85, 165, 230);
+    width: 50px;
+    height: 50px;    
+}
+
+
+
+.prev{
+    position: absolute;
+    left: 0;
+    top: 150px;    
+}
+
+.next{
+    position: absolute;
+    right: 0;
+    top: 150px;    
+}
+
+.arrow-icon{
+    position: absolute;
+    top: -12px;
+    left: -2px;
+    font-size: 51px;
+    color: rgb(85, 165, 230);
+}
+
+.image-content,
+.card-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 14px;
+}
+
+.image-content{
+    position: relative;
+    row-gap: 5px;
+    padding: 25px 0;
+}
+
+.overlay{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #4070f4;
+    border-radius: 25px 25px 0 25px;
+}
+
+.overlay::before,
+.overlay::after{
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -40px;
+    height: 40px;
+    width: 40px;
+    background-color: #4070f4;
+    
+}
+
+.overlay::after{
+    border-radius: 0 25px 0 0;
+    background-color: #fff;
+}
+.card-image{
+    position: relative;
+    height: 150px;
+    width: 150px;
+    background: #fff;
+    border-radius: 50%;
+    padding: 3px;
+}
+
+.card-image .card-img{    
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #4070f4;
+}
+
+.name{
+    font-size: 18px;
+    font-weight: bolder;
+    color: #333;
+    text-align: center;
+}
+
+.description{
+    font-size: 14px;
+    color: #707070;
+    text-align: center;
+}
+
+.btn-view{
+    border: none;
+    font-size: 16px;
+    color: #fff;
+    padding: 8px 16px;
+    background-color: #4070f4;
+    border-radius: 6px;
+    margin: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-view:hover{
+    background: #265df2;
+}
+
+.btn-create{
+    border: none;
+    font-size: 16px;
+    color: #fff;
+    padding: 8px 16px;
+    background-color: #4070f4;
+    border-radius: 6px;
+    margin: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tabs{
+    margin: 0 10px;
+}
+
+.tabs li{
+    padding: 10px;
+    
+    border-radius: 0 25px 25px 0;
+}
+
+.tabs li:hover{
+    background-color: #e3f4ff;
+}
+
+.tabs .active{
+    
+    background-color: #C2E7FF;
+}
+
+.project-grid{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns with equal width */
+    gap: 20px;
+}
+
+.project-header{
+    margin: 0 10px 20px;
+    border-bottom: 1px solid lightgray;
+    padding: 3px;
+}
+/*
+
+
+.slide-container{
+    max-width: 1120px;
+    width: 100%;
+    background-color: gray;
+    padding: 40px 0;
+}
+
+.slide-content{
+    margin: 0 40px;
+}
+
+.card-wrapper{
+    display: flex;
+    flex-direction: row;
+}
+
+.card{
+    width: 220px;
+    border-radius: 25px;
+    background-color: #fff;
+}
+
+.image-content,
+.card-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 14px;
+}
+
+.image-content{
+    position: relative;
+    row-gap: 5px;
+    padding: 25px 0;
+}
+
+.overlay{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #4070f4;
+    border-radius: 25px 25px 0 25px;
+}
+
+.overlay::before,
+.overlay::after{
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -40px;
+    height: 40px;
+    width: 40px;
+    background-color: #4070f4;
+    
+}
+
+.overlay::after{
+    border-radius: 0 25px 0 0;
+    background-color: #fff;
+}
+
+.card-image{
+    position: relative;
+    height: 150px;
+    width: 150px;
+    background: #fff;
+    border-radius: 50%;
+    padding: 3px;
+}
+
+.card-image .card-img{    
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #4070f4;
+}
+
+.name{
+    font-size: 18px;
+    font-weight: bolder;
+    color: #333;
+}
+
+.description{
+    font-size: 14px;
+    color: #707070;
+    text-align: center;
+}
+
+.button{
+    border: none;
+    font-size: 16px;
+    color: #fff;
+    padding: 8px 16px;
+    background-color: #4070f4;
+    border-radius: 6px;
+    margin: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button:hover{
+    background: #265df2;
+} */
+
+.aside {
+    background: linear-gradient(195deg,#42424a,#191919);
+    height: 100vh;
+    overflow: auto;
+    padding-top: 60px;
+}

@@ -1,0 +1,47 @@
+.main-cont {
+    display: flex;
+    flex-direction: row;
+    min-height: 550px;
+    
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+#wrapper-div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100px;
+    
+    margin: auto;
+}
+
+.left {
+    width: 18%;    
+}
+
+.center {
+    width: 82%;
+    border-left: 1px solid lightgray;
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.btn-left {
+    margin: 20px 10px;
+    background-color: #741B7C;
+    color: white;
+    width: 246px;
+}
+
+ul a,
+p a{
+    text-decoration: none;
+}
+
+p{
+    margin: 0 10px;
+    text-align: center;
+}

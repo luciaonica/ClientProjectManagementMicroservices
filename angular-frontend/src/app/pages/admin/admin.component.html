@@ -1,0 +1,241 @@
+<!-- 
+<div class="container">
+    <div class="pt-5">
+
+        <div class="alert alert-danger" *ngIf="errorMessage">
+            {{errorMessage}}
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+
+                <div class="row">
+
+                    <div class="col-6">
+                        <h3>All Users</h3>
+                    </div>
+
+                    <div class="col-6 text-end">
+                        <button class="btn btn-primary" >Add User</button>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Role</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of usersList; index as ind">
+                            <th scope="row">{{ind+1}}</th>
+                            <td>{{item.firstName}} {{item.lastName}}</td>
+                            <td>{{item.email}}</td>
+                            <td>{{item.role}}</td>
+                            <td>
+                                <button class="btn btn-primary me-1" (click)="viewUserDetails(item.userId)">View Details</button>
+                                <button class="btn btn-primary me-1" (click)="changeRole(item.userId)">Change Role</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+    </div>
+</div> -->
+
+<div id="wrapper-div">
+    <div class="main-cont">
+        <div class="left">
+        
+            <nav id="sidebar">
+                <ul class="list-unstyled components">
+                    
+                    
+                    <div class=" m-4">
+                        <button class="btn btn-primary btn-create" (click)="createDeveloperRequest()">Create Dev</button>
+                    </div>
+                    <div class="tabs">
+                      <li [ngClass]="activatedTab == 'users' ? 'active' : ''" (click)="changeTab('users')">Users</li>
+                      <li [ngClass]="activatedTab == 'developers' ? 'active' : ''" (click)="changeTab('developers')">Developers</li>
+                      <li [ngClass]="activatedTab == 'projects' ? 'active' : ''" (click)="changeTab('projects')">Projects</li>
+                    </div>
+                </ul>
+            </nav>
+        </div>
+
+
+        <div class="center">
+
+            <div *ngIf="activatedTab === 'users'">
+                <div>
+                    <h2>Users</h2>
+                </div>
+                <section class="users">
+                    <div class="container-fluid">
+                        <div class="slider-wrap">
+                            <div class="slider-main">
+                                <div class="card" *ngFor="let item of usersList">
+                                    <div class="image-content">
+                                        <span class="overlay"></span>
+    
+                                        <div class="card-image">
+                                            <img src="assets/images/user.png" alt="" class="card-img">
+                                        </div>
+                                    </div>
+                                    <div class="card-content">
+                                        <h2 class="name">{{ item.firstName }} {{ item.lastName }}</h2>
+                                        <p class="description"> {{ item.email }}</p>
+                                        <div>&nbsp;</div>
+                                        <button class="btn-view" (click)="viewUserDetails(item.userId)"> View More</button>
+                                    </div>
+                                    
+                                    
+                                </div>
+    
+                            </div>
+                            <div class="button-area">
+                                <button type="button" class="btn-slide prev" appPrev> 
+                                    <fa-icon [icon]="leftArrow" class="arrow-icon"></fa-icon>
+                                </button>
+                                <button type="button" class="btn-slide next" appNext>
+                                    <fa-icon [icon]="rightArrow" class="arrow-icon"></fa-icon>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div *ngIf="activatedTab === 'developers'">
+                <div>
+                    <h2>Developers</h2>
+                </div>
+                <section class="users">
+                    <div class="container-fluid">
+                        <div class="slider-wrap">
+                            <div class="slider-main">
+                                <div class="card" *ngFor="let item of developersList">
+                                    <div class="image-content">
+                                        <span class="overlay"></span>
+    
+                                        <div class="card-image">
+                                            <img src="assets/images/user.png" alt="" class="card-img">
+                                        </div>
+                                    </div>
+                                    <div class="card-content">
+                                        <h2 class="name">{{ item.firstName }} {{ item.lastName }}</h2>
+                                        <p class="description"> {{ item.email }}</p>
+                                        <div>&nbsp;</div>
+                                        <button class="btn-view" (click)="viewUserDetails(item.userId)"> View More</button>
+                                    </div>
+                                    
+                                    
+                                </div>
+    
+                            </div>
+                            <div class="button-area">
+                                <button type="button" class="btn-slide prev" appPrev> 
+                                    <fa-icon [icon]="leftArrow" class="arrow-icon"></fa-icon>
+                                </button>
+                                <button type="button" class="btn-slide next" appNext>
+                                    <fa-icon [icon]="rightArrow" class="arrow-icon"></fa-icon>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div *ngIf="activatedTab === 'projects'">
+                <div>
+                    <h2>Projects</h2>
+                </div>
+                
+                <div class="container">
+                    <div class="pt-5">
+                
+                        <div class="alert alert-danger" *ngIf="errorMessage">
+                            {{errorMessage}}
+                        </div>
+                        <table class="table table-striped">
+                
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Start Date</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Client</th>
+                                    <th scope="col">Developer</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of projectList; index as ind">
+                                    <th scope="row">{{ind+1}}</th>
+                                    <td>{{item.title}}</td>
+                                    <td>date</td>
+                                    <td>{{item.status}}</td>
+                                    <td>{{item.userId}}</td>
+                                    <td>{{item.developerId}}</td>
+                                    
+                                    <td>
+                                        <button class="btn btn-primary me-1" >View</button>
+        
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                
+                
+                    </div>
+                </div>
+                   
+            </div>
+
+            
+            
+
+            <!--   <div class="slide-container">
+               <div class="slide-content">
+                <div class="card-wrapper">
+                    <div class="card" >
+                        <div class="image-content">
+                            <span class="overlay"></span>
+
+                            <div class="card-image">
+                                <img src="assets/images/user.png" width="10px" alt="" class="card-img">
+                            </div>
+                        </div>
+
+                        <div class="card-content">
+                            <h2 class="name">firstname</h2>
+                            <p class="description"> description</p>
+                            <button class="button"> View More</button>
+                        </div>
+                    </div>
+                    
+                </div>
+               </div>
+            </div> -->
+        </div>
+        <div class="right">
+            <a href="https://climate.com/" target="_blank">
+                <img height="550px" alt="" src="assets/images/Untitled1.png" />
+            </a>
+        </div>
+    </div>
+
+
+</div>
+
+<app-developer-save></app-developer-save>

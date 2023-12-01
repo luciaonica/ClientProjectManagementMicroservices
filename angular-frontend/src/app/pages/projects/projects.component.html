@@ -1,0 +1,292 @@
+<div id="wrapper-div">
+    <div class="main-cont">
+        <div class="left">
+            <nav id="sidebar">
+                <ul class="list-unstyled components">
+                    
+                    
+                    <div class="col-6 text-end me-6">
+                        <button class="btn btn-primary btn-create" (click)="createProjectRequest()">Create Project</button>
+                    </div>
+                      
+                    
+                </ul>
+            </nav>
+        </div>
+
+
+        <div class="center">
+           <!--  <div class="row project-header">
+                <div class="col-6">
+                    <h3>My Projects - New</h3>
+                </div>
+
+                <div class="col-6 text-end me-6">
+                    <button class="btn btn-primary btn-create" (click)="createProjectRequest()">Create Project</button>
+                </div>
+
+
+            </div>
+
+            <div class="project-grid">
+
+                <div class="card" *ngFor="let item of projectList; index as ind">
+                    <div class="card-header">
+
+                        <div class="row">
+
+                            <div class="text-center">
+                                
+                                <h4>Project Nr. {{ind+1}}</h4>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-5">Project title:</div>
+                            <div class="col-7">{{item.title}}</div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-5">date:</div>
+                            <div class="col-7">{{item.title}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5">dev:</div>
+                            <div class="col-7">{{item.developerId}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5">status:</div>
+                            <div class="col-7">{{item.status}}</div>
+                        </div>
+                        <button class="btn btn-primary m-2" (click)="editProjectRequest(item)">View</button>
+                        <button class="btn btn-primary m-2" (click)="editProjectRequest(item)">Edit</button>
+                        <button class="btn btn-secondary m-2" (click)="editProjectRequest(item)">Cancel</button>
+                        
+                    </div>
+                </div> 
+            </div>-->
+
+          <app-tabs [tabsArray]="tabs" (onTabChange)="tabChange($event)"></app-tabs>
+        <div class="row">
+            <div class="col-12">
+                <div *ngIf="activatedTabIndex == 0">
+                    <div class="row project-header">
+                        <div class="col-6">
+                            <h3>My Projects - New</h3>
+                        </div>
+        
+                        
+        
+        
+                    </div>
+                    <div class="project-grid">
+
+                        <div class="card" *ngFor="let item of newProjectList; index as ind">
+                            <div class="card-header">
+        
+                                <div class="row">
+        
+                                    <div class="text-center">
+                                        
+                                        <h4>Project Nr. {{ind+1}}</h4>
+                                    </div>
+                                </div>
+        
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-5">Project title:</div>
+                                    <div class="col-7">{{item.title}}</div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-5">date:</div>
+                                    <div class="col-7">{{item.title}}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-5">dev:</div>
+                                    <div class="col-7">{{item.developerId}}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-5">status:</div>
+                                    <div class="col-7">{{item.status}}</div>
+                                </div>
+                                <button class="btn btn-primary m-2" (click)="editProjectRequest(item)">View</button>
+                                <button class="btn btn-primary m-2" (click)="editProjectRequest(item)">Edit</button>
+                                <button class="btn btn-secondary m-2" (click)="editProjectRequest(item)">Cancel</button>
+                                
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+                <div *ngIf="activatedTabIndex == 1">
+                    <div class="row project-header">
+                        <div class="col-6">
+                            <h3>My Projects - In Progress</h3>
+                        </div>
+        
+                        
+        
+        
+                    </div>
+                    <div class="project-grid">
+
+                        <div class="card" *ngFor="let item of inProgressProjectList; index as ind">
+                            <div class="card-header">
+        
+                                <div class="row">
+        
+                                    <div class="text-center">
+                                        
+                                        <h4>Project Nr. {{ind+1}}</h4>
+                                    </div>
+                                </div>
+        
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-5">Project title:</div>
+                                    <div class="col-7">{{item.title}}</div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-5">date:</div>
+                                    <div class="col-7">{{item.title}}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-5">dev:</div>
+                                    <div class="col-7">{{item.developerId}}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-5">status:</div>
+                                    <div class="col-7">{{item.status}}</div>
+                                </div>
+                                <button class="btn btn-primary m-2" (click)="editProjectRequest(item)">View</button>
+                                <button class="btn btn-primary m-2" (click)="editProjectRequest(item)">Edit</button>
+                                <button class="btn btn-secondary m-2" (click)="editProjectRequest(item)">Cancel</button>
+                                
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+                <div *ngIf="activatedTabIndex == 2">
+                    <div class="row project-header">
+                        <div class="col-6">
+                            <h3>My Projects - Canceled</h3>
+                        </div>
+        
+                        
+        
+        
+                    </div>
+                    <div class="project-grid">
+
+                        <div class="card" *ngFor="let item of canceledProjectList; index as ind">
+                            <div class="card-header">
+        
+                                <div class="row">
+        
+                                    <div class="text-center">
+                                        
+                                        <h4>Project Nr. {{ind+1}}</h4>
+                                    </div>
+                                </div>
+        
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-5">Project title:</div>
+                                    <div class="col-7">{{item.title}}</div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-5">date:</div>
+                                    <div class="col-7">{{item.title}}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-5">dev:</div>
+                                    <div class="col-7">{{item.developerId}}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-5">status:</div>
+                                    <div class="col-7">{{item.status}}</div>
+                                </div>
+                                <button class="btn btn-primary m-2" (click)="editProjectRequest(item)">View</button>
+                                
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+        <div class="right">
+            <a href="https://climate.com/" target="_blank" >
+                <img  alt="" src="assets/images/Untitled1.png" width="100%"/>
+            </a>
+        </div>
+    </div>
+
+
+</div>
+
+
+<!-- 
+<div class="container">
+    <div class="pt-5">
+
+        <div class="alert alert-danger" *ngIf="errorMessage">
+            {{errorMessage}}
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+
+                <div class="row">
+
+                    <div class="col-6">
+                        <h3>All Projects</h3>
+                    </div>
+
+                    <div class="col-6 text-end">
+                        <button class="btn btn-primary" (click)="createProjectRequest()">Create Project</button>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Project ID</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of projectList; index as ind">
+                            <th scope="row">{{ind+1}}</th>
+                            <td>{{item.title}}</td>
+                            <td>id</td>
+                            <td>
+                                <button class="btn btn-primary me-1" (click)="editProjectRequest(item)">Edit</button>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+    </div>
+</div> -->
+
+<app-project-save (save)="saveProjectWatcher($event)"></app-project-save>
+<app-project-update [project]="selectedProject" (update)="editProjectWatcher($event)"></app-project-update>

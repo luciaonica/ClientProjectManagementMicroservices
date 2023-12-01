@@ -1,0 +1,74 @@
+<div id="wrapper-div">
+    <div class="main-cont">
+        <div class="left">
+            <button class="btn-left">
+                Popular Tools
+            </button>
+            <ul>
+                <li><a href="https://www.amazon.com/" target="_blank">amazon</a></li>
+                <li><a href="https://mvnrepository.com/" target="_blank">mvn</a></li>
+                <li><a href="https://www.figma.com/" target="_blank">figma</a></li>
+                <li><a href="https://angular.io/" target="_blank">angular</a></li>
+                <li><a href="https://jwt.io/" target="_blank">jwt</a></li>
+                <li><a href="https://www.mysql.com/" target="_blank">mysql</a></li>
+                <li><a href="https://spring.io/" target="_blank">spring</a></li>
+            </ul>
+
+            <button class="btn-left">
+                Popular Tags
+            </button>
+            <p>
+                <a href="https://www.amazon.com/" target="_blank">amazon</a> &nbsp;
+                <a href="https://www.android.com/" target="_blank">android</a>&nbsp;
+                <a href="https://apache.org/" target="_blank">apache</a>&nbsp;
+                <a href="https://aws.amazon.com/console/" target="_blank">aws</a>&nbsp;
+               
+              
+                <a href="https://www.eclipse.org/downloads/" target="_blank">eclipse</a>&nbsp;
+                <a href="https://github.com/" target="_blank">github</a>&nbsp;
+                <a href="https://gradle.org/" target="_blank">gradle</a>&nbsp;
+                <a href="https://www.groovy-lang.org/" target="_blank">groovy</a>&nbsp;
+            </p>
+        </div>
+
+
+        <div class="center">
+
+            <div class="container mt-5">
+                <div class="card ms-auto me-auto p-2 shadow-lg custom-card">
+                    <fa-icon [icon]="faUser" class="ms-auto me-auto user-icon"></fa-icon>
+
+                    <form #f="ngForm" (ngSubmit)="f.form.valid && login()">
+
+                        <div class="alert alert-danger" *ngIf="errorMessage">
+                            {{errorMessage}}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="text" id="email" name="email" [(ngModel)]="loginData.email" #email="ngModel"
+                                class="form-control" required>
+                            <div class="alert-danger" *ngIf="!email.valid && f.submitted">Email is required</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" [(ngModel)]="loginData.password"
+                                #password="ngModel" class="form-control" required>
+                            <div class="alert-danger" *ngIf="!password.valid && f.submitted">Password is required</div>
+                        </div>
+
+                        <button type="submit" class="btn btn-danger w-100 mt-3">
+                            Sign In
+                        </button>
+                    </form>
+
+                    <a [routerLink]="['/register']" class="btn btn-link" style="color: darkgray;">
+                        Create new account
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
